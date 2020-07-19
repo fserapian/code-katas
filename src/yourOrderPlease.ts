@@ -11,7 +11,7 @@
   For an input: "is2 Thi1s T4est 3a" the function should return "Thi1s is2 3a T4est"
 */
 
-function order(words: string) {
+function order(words: string): string {
   const wordsArr: string[] = words.split(' ');
   const sorted: string[] = [];
 
@@ -30,5 +30,19 @@ function order(words: string) {
   return sorted.join(' ');
 }
 
+function order1(words: string): string {
+  if (words === '') return '';
+
+  return words.split(' ').reduce((sorted: string[], word: string) => {
+    const index = +word.match(/\d/)[0];
+
+    sorted[index - 1] = word;
+
+    return sorted;
+  }, []).join(' ');
+}
+
 console.log(order('is2 Thi1s T4est 3a'));
 console.log(order(''));
+console.log(order1('is2 Thi1s T4est 3a'));
+console.log(order1(''));

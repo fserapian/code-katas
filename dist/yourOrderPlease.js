@@ -24,5 +24,16 @@ function order(words) {
     }
     return sorted.join(' ');
 }
+function order1(words) {
+    if (words === '')
+        return '';
+    return words.split(' ').reduce((sorted, word) => {
+        const index = +word.match(/\d/)[0];
+        sorted[index - 1] = word;
+        return sorted;
+    }, []).join(' ');
+}
 console.log(order('is2 Thi1s T4est 3a'));
 console.log(order(''));
+console.log(order1('is2 Thi1s T4est 3a'));
+console.log(order1(''));
