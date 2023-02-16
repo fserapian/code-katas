@@ -22,7 +22,7 @@ class LinkedList {
         this.length = 1;
     }
 
-    public getLength() {
+    public getLength(): number {
         return this.length;
     }
 
@@ -44,14 +44,14 @@ class LinkedList {
         this.length++;
     }
 
-    public preprend(value: number): void {
+    public prepend(value: number): void {
         const newNode = new LinkingNode(value);
         newNode.next = this.head;
         this.head = newNode;
         this.length++;
     }
 
-    public insert(index: number, value: number) {
+    public insert(index: number, value: number): void {
         const leader = this.traverseLinkedList(index - 1);
         const holdingPointer = leader.next;
         const newNode = new LinkingNode(value);
@@ -61,7 +61,7 @@ class LinkedList {
         this.length++;
     }
 
-    public remove(index: number) {
+    public remove(index: number): void {
         const leader = this.traverseLinkedList(index - 1);
         const nodeToRemove = leader.next;
 
@@ -86,7 +86,7 @@ const myLinkedList = new LinkedList(10);
 
 myLinkedList.append(20);
 myLinkedList.append(30);
-myLinkedList.preprend(5);
+myLinkedList.prepend(5);
 myLinkedList.insert(2, 123)
 myLinkedList.remove(2);
 console.log(myLinkedList.getList());
