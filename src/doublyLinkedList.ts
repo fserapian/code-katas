@@ -47,6 +47,7 @@ class DoublyLinkedList {
     public prepend(value: number): void {
         const newNode = new LinkNode(value);
         newNode.next = this.head;
+        this.head.prev = newNode;
         this.head = newNode;
         this.length++;
     }
@@ -92,6 +93,6 @@ const ll = new DoublyLinkedList(10);
 ll.append(20);
 ll.append(30);
 ll.prepend(5);
-ll.insert(2, 123)
-ll.remove(3);
+// ll.insert(2, 123)
+// ll.remove(3);
 console.log(ll.getList());
