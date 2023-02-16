@@ -53,14 +53,14 @@ class DoublyLinkedList {
     }
 
     public insert(index: number, value: number): void {
-        const leader = this.traverseLinkedList(index - 1);
-        const holdingPointer = leader.next;
         const newNode = new LinkNode(value);
+        const leader = this.traverseLinkedList(index - 1);
+        const follower = leader.next;
 
         leader.next = newNode;
         newNode.prev = leader;
-        newNode.next = holdingPointer;
-        holdingPointer.prev = newNode;
+        newNode.next = follower;
+        follower.prev = newNode;
         this.length++;
     }
 
@@ -93,6 +93,6 @@ const ll = new DoublyLinkedList(10);
 ll.append(20);
 ll.append(30);
 ll.prepend(5);
-// ll.insert(2, 123)
+ll.insert(2, 123);
 // ll.remove(3);
 console.log(ll.getList());
