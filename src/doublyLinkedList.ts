@@ -53,6 +53,10 @@ class DoublyLinkedList {
     }
 
     public insert(index: number, value: number): void {
+        if (index >= this.length) {
+            return this.append(index);
+        }
+
         const newNode = new LinkNode(value);
         const leader = this.traverseLinkedList(index - 1);
         const follower = leader.next;
