@@ -38,8 +38,8 @@ class DoublyLinkedList {
 
     public append(value: number): void {
         const newNode = new LinkNode(value);
-        this.tail.next = newNode;
         newNode.prev = this.tail;
+        this.tail.next = newNode;
         this.tail = newNode;
         this.length++;
     }
